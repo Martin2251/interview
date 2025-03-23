@@ -1,5 +1,5 @@
 "use client"
-
+import Image from "next/image"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -42,7 +42,12 @@ const AuthForm = () => {
       
   
         return(
-        <div>
+        <div className="card-border lg:min-w-[566px]">
+            <div className="flex flex-col gap-6 card py-14 px-10">
+                <div className="flex flex-row gap-2 justify-center">
+                    <Image src="/logo.svg" alt="logo" height={32} width={38}  />
+                </div>
+            </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
