@@ -48,7 +48,8 @@ const AuthForm = () => {
                     <Image src="/logo.svg" alt="logo" height={32} width={38}  />
                     <h2 className="text-primary-100">Prepwise</h2> 
                 </div>
-            </div>
+                <h3>Pratice interview with ai</h3>
+            
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
@@ -70,6 +71,7 @@ const AuthForm = () => {
             <Button type="submit">Submit</Button>
           </form>
         </Form>
+        </div>
         </div>
         )
 }
