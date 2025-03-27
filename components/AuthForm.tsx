@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import Link from "next/link"
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -47,7 +48,7 @@ const AuthForm = ({type}:{type:FormType}) => {
                 <div className="flex flex-row gap-2 justify-center">
                     <Image src="/logo.svg" alt="logo" height={32} width={38}  />
                     <h2 className="text-primary-100">Prepwise</h2> 
-                </div>
+                </div> 
                 <h3>Pratice interview with ai</h3>
             
         <Form {...form}>
@@ -58,6 +59,12 @@ const AuthForm = ({type}:{type:FormType}) => {
             <Button className="btn" type="submit">{isSignIn ? 'Sign in': 'Create an account'}</Button>
           </form>
         </Form>
+        <p className="text-center"> 
+            {isSignIn ? 'No Account yet':'Have an account already'}
+            <Link href={!isSignIn ? '/sign-in': '/sign-up'} className="font-bold-text-user-primary-ml-1" >
+            {!isSignIn ? "Sign in ": "sign up"}
+            </Link>
+        </p>
         </div>
         </div>
         )
