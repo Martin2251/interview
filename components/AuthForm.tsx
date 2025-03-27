@@ -16,9 +16,13 @@ import {
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 
-const formSchema = z.object({
-  username: z.string().min(2).max(50),
-})
+const authFormSchema = (type: FormType) => {
+    return z.object({
+      name: type === "sign-up" ? z.string().min(3) : z.string().optional(),
+      email: z.string().email(),
+      password: z.string().min(3),
+    });
+  };
 
 
 
@@ -35,7 +39,7 @@ const AuthForm = ({type}:{type:FormType}) => {
         })
        
         // 2. Define a submit handler.
-        function onSubmit(values: z.infer<typeof formSchema>) {
+        function onSubmit(values: z.infer<typeof authFormSchema>) {
           // Do something with the form values.
           // ✅ This will be type-safe and validated.
           console.log(values)
