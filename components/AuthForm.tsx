@@ -55,7 +55,7 @@ const AuthForm = ({type}:{type:FormType}) => {
             {isSignIn && <p >Name</p>}
             <p>EMail</p>
             <p>Password</p>
-            <Button type="submit">Submit</Button>
+            <Button className="btn" type="submit">{isSignIn ? 'Sign in': 'Create an account'}</Button>
           </form>
         </Form>
         </div>
